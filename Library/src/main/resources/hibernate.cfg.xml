@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.username">protossarchon</property>
+		<property name="hibernate.connection.password">poweroverwhelming</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://revature-osberg.cmbmxlvbcdgh.us-east-2.rds.amazonaws.com:5432/postgres</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+
+		<mapping resource="Library.hbm.xml" /> <!-- This is to generate DB from the hbm.xml file  -->
+		<mapping class="com.revature.models.Book"></mapping> <!-- This is required to generate DB from the class -->
+	</session-factory>
+</hibernate-configuration>

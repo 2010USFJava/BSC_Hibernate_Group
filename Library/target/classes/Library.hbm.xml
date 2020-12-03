@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.revature.models">
+	<class name="Library" table="library">
+		<id name="name" type="string"></id>
+		
+		<property name="location" type="string" length="100"
+			not-null="true"></property>
+
+		<!-- <many-to-one name="trainer" fetch="join"></many-to-one> -->
+		<list name="books">
+			<key column="library_id"></key>
+			<index></index>
+			<many-to-many entity-name="com.revature.models.Book" column="book_id">
+				<!-- <column name="id"></column> -->
+			</many-to-many>
+		</list>
+
+	</class>
+</hibernate-mapping>
