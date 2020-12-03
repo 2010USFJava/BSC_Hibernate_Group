@@ -3,6 +3,8 @@ package com.revature;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -41,6 +43,11 @@ public class Driver {
 		System.out.println("Library = " + library + "\r\nlibFromDb = " + libFromDb + "\r\nlibList = " + libList);
 
 		System.out.println("Book = " + book + "\r\nbookFromDb = " + bookFromDb + "\r\nbookList = " + bookList);
+		
+		TypedQuery<Book> query = s.createNamedQuery("getBookByLibraryLocation", Book.class);
+		query.setParameter("location", "Springfield");
+		List<Book> springfieldBooks = query.getResultList();
+		System.out.println(springfieldBooks);
 	}
 
 }
